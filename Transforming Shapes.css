@@ -1,0 +1,369 @@
+/* CSS styles */
+
+/* Variable declaration and initialization  */
+:root {
+  --red: #EA5E5E;
+  --yellow: #F7BA3E;
+  --unit: 40px;
+  --blue: #7ab3ef;
+
+}
+
+body {
+  margin: 0;
+  /* Remove default margins */
+  height: 100vh;
+  /* Set the height to the full viewport */
+  display: flex;
+  /* Flexbox for alignment */
+  justify-content: center;
+  /* Center the box horizontally */
+  align-items: center;
+  /*To center the box vertically*/
+  background-image: url("https://img.freepik.com/free-vector/vector-black-minimal-aesthetic-grid-pattern-background_53876-117155.jpg");
+  /* To use an image for the background */
+  background-size: cover;
+  /* Resize the background image to cover the entire background */
+  background-position: center;
+  /* Center the background image */
+}
+
+.grid-container {
+  display: inline-grid;
+  /* To display the boxes in a grid */
+  grid-template-columns: auto auto;
+  /* Arrange the boxes evenly in a square */
+}
+
+.box {
+  display: inline-grid;
+  /* To display the grid-items in a grid */
+  grid-template-columns: auto auto auto;
+  /* To arrange the grid-items evenly in a square */
+  padding: 5px;
+  /* To create a gap between the boxes */
+  translate: -929px;
+  /* To translate all boxes left */
+  animation: return 1000ms 0.5s ease-in-out;
+  /* Animation declaration */
+  animation-fill-mode: forwards;
+  /* To retain the style modifications after the animation */
+}
+
+.box:nth-child(2n) {
+  translate: 978px;
+}
+
+/* To translate every secound box */
+
+.grid-item-1 {
+  background-color: var(--red);
+  /* To make the boxes red */
+  height: var(--unit);
+  /* To make the height one unit */
+  width: var(--unit);
+  /* To make the width one unit */
+  border-radius: 15%;
+  /* Make the boxes circular*/
+  padding: 5px;
+  /* To create a gap between the grid-items */
+  animation: skewOne 7s 1.5s ease-in-out, return 1000ms 0.5s ease-in-out, squareToCircle 4s 7.5s ease-in-out, skewTwo 7s 10s ease-in-out, shrink 1.5s 17.5s;
+  /* To declare the animations and their properties */
+  animation-fill-mode: none, forwards, forwards, none, forwards;
+  /* To retain and discard style modifications after the animation */
+  box-shadow: 0 0 20px black;
+  /* To create a shadow around the boxes */
+  translate: 3000px;
+  /* To translate all red grid-item right */
+}
+
+.grid-item-1:nth-child(2n) {
+  translate: 1727px;
+}
+
+/* To translate every secound red grid-item */
+
+.grid-item-1:nth-child(3n) {
+  translate: -2907px;
+}
+
+/* To translate every third red grid-item */
+
+.grid-item-2:nth-child(5n) {
+  translate: 2900px;
+}
+
+/* To translare every fifth red grid-item */
+
+.grid-item-2 {
+  background-color: var(--yellow);
+  /* To make the boxes yellow */
+  height: var(--unit);
+  /* To make the heigh one unit */
+  width: var(--unit);
+  /* To make the width one unit */
+  border-radius: 15%;
+  /* Make the boxes circular*/
+  padding: 5px;
+  /* To create a gap between the grid-items */
+  animation: skewTwo 7s 1.5s ease-in-out, return 1000ms 0.5s ease-in-out, squareToCircle 4s 7.5s ease-in-out, skewOne 7s 10s ease-in-out, shrink 1.5s 17.5s;
+  /* To declare the animations and their properties */
+  animation-fill-mode: none, forwards, forwards, none, forwards;
+  /* To retain and discard the style modifications made during the aniamtions */
+  box-shadow: 0 0 20px black;
+  /* To create a shadow around the boxes */
+  translate: -3209px;
+  /* To translate all yellow grid-item left */
+}
+
+.grid-item-2:nth-child(2n) {
+  translate: 2727px;
+}
+
+/* To translate every secound yellow grid-item */
+
+.grid-item-2:nth-child(3n) {
+  translate: -1800px;
+}
+
+/* To translate every third yellow grid-item */
+
+.grid-item-2:nth-child(4n) {
+  translate: 2900px;
+}
+
+/* To translate every fourth yellow grid-item */
+
+@keyframes return {
+  100% {
+    translate: 0;
+  }
+}
+
+/* To return all boxes and grid-items to the centre */
+
+@keyframes shrink {
+  from {
+    transform: scale(1);
+  }
+
+  /* Start with the grid-items at its initial scale */
+  to {
+    transform: scale(0);
+  }
+
+  /* To decrease the scale until the grid-items are invisible*/
+}
+
+@keyframes skewOne {
+  50% {
+    transform: skewX(-80deg);
+  }
+
+  /* To skew the grid-items on the x-axis */
+  65% {
+    transform: skewY(0deg);
+  }
+
+  /* To skew the grid-items on the y-axis */
+  80% {
+    transform: skewX(80deg);
+  }
+
+  /* To skew the grid-items on the x-axis */
+}
+
+@keyframes skewTwo {
+  50% {
+    transform: skewY(-80deg);
+  }
+
+  /* To skew the grid-items on the y-axis */
+  65% {
+    transform: skewX(0deg);
+  }
+
+  /* To skew the grid-items on the x-axis */
+  80% {
+    transform: skewY(80deg);
+  }
+
+  /* To skew the grid-items on the y-axis */
+}
+
+@keyframes squareToCircle {
+  25% {
+    border-radius: 50% 25% 20% 15%;
+    /* To round the edges of the grid-items */
+    transform: rotate(45deg);
+    /* To rotate the grid-items */
+  }
+
+  50% {
+    border-radius: 50% 50% 25% 20%;
+    /* To round the edges of the grid-items further */
+    transform: rotate(90deg);
+    /* To rotate the grid-items further */
+  }
+
+  75% {
+    border-radius: 50% 50% 50% 25%;
+    /* To round the edges of the grid-items further */
+    transform: rotate(135deg);
+    /* To rotate the grid-items further */
+  }
+
+  100% {
+    border-radius: 50% 50% 50% 50%;
+    /* To round the edges of the grid-items further */
+    transform: rotate(180deg);
+    /* To rotate the grid-items further */
+  }
+}
+
+.circle {
+  position: fixed;
+  /* To fix the circle into the centre of the screen */
+  height: 200px;
+  /* To set the height of the circle  */
+  width: 200px;
+  /* To set the width of the circle */
+  box-shadow: 0 0 40px var(--red);
+  /* To create a glow */
+  border-radius: 50%;
+  /* To make the circle circular */
+  background: var(--red);
+  /* To make the circle red */
+  animation: appear 1s 19s ease-in-out, bounce 0.5s infinite;
+  /* To declare the animations and their properties */
+  animation-fill-mode: forwards, none;
+  /* To retain and discard the style modificiations made during the animations */
+  animation-direction: normal, alternate;
+  /* To set the animation direction */
+  opacity: 0;
+  /* To make the circle transparent */
+}
+
+.mouth {
+  position: absolute;
+  /* To fix the mouth into the circle */
+  height: 50px;
+  /* To set the heigh of the mouth */
+  width: 100px;
+  /* To set the width of the mouth */
+  top: 110px;
+  /* To translate the mouth away from the top */
+  left: 48px;
+  /* To translate the mouth away from the left */
+  border-radius: 1rem 1rem 5rem 5rem;
+  /* To round the bottom two corners of the mouth */
+  background-color: black;
+  /* To make the mouth black */
+  box-shadow: box-shadow 0 0 20px black;
+  /* To create a shadow around the boxes */
+  animation: frown 1s infinite;
+  /* To declare the animation and its properties */
+}
+
+.eye-section {
+  position: absolute;
+  /* To fix the eye-section into the circle */
+  height: 50px;
+  /* To set the height of the eye-section */
+  width: 150px;
+  /* To set the width of the eye-section */
+  top: 45px;
+  /* To translate the eye-section away from the top */
+  left: 25px;
+  /* To translate the eye-section away from the top */
+}
+
+.leftEye {
+  position: absolute;
+  /* To fix the left eye into the eye-section */
+  height: 20px;
+  /* To set the height of the left eye */
+  width: 20px;
+  /* To set the width of the left eye */
+  top: 20px;
+  /* To translate the eye away from the top  */
+  left: 20px;
+  /* To translate the eye away from the left */
+  border-radius: 50%;
+  /* To make the eye circular */
+  background-color: black;
+  /* To make the eye black */
+  animation: squint 1s infinite;
+  /* To declare the animation and its properties */
+}
+
+.rightEye {
+  position: absolute;
+  /* To fix the right eye into the eye-section */
+  height: 20px;
+  /* To set the height of the right eye */
+  width: 20px;
+  /* To set the width of the right eye */
+  top: 20px;
+  /* To translate the right eye away from the top */
+  left: 110px;
+  /* To translate the right eye away from the left */
+  border-radius: 50%;
+  /* To make the eye circular */
+  background-color: black;
+  /* To make the rigth eye black */
+  animation: squint 1s infinite;
+  /* To declare the animation and its properties */
+}
+
+@keyframes appear {
+  100% {
+    opacity: 1;
+  }
+}
+
+/* To make the circle opaque */
+
+@keyframes bounce {
+  from {
+    top: 25%;
+    /* To move the smiley face down */
+    transform: scaleX(85%) scaleY(1.15);
+    /* To squish the smiley face horizontally */
+    background-image: linear-gradient(180deg, #deecfb, var(--red));
+    /* To create a whitish-blue to red gradiant */
+  }
+
+  to {
+    top: 70%;
+    /* To move the smiley face down */
+    transform: scaleX(1.15) scaleY(90%);
+    /* To squish the smiley face vertically*/
+    background-image: linear-gradient(180deg, var(--blue), var(--red));
+    /* To create a blue to red gradiant */
+  }
+}
+
+@keyframes frown {
+  0% {
+    border-radius: 1rem 1rem 5rem 5rem;
+    /* To round the bottom two corners of the mouth */
+  }
+
+  70% {
+    border-radius: 5rem 5rem 1rem 1rem;
+    /* To round the upper two corners of the mouth */
+  }
+
+  100% {
+    border-radius: 1rem 1rem 5rem 5rem;
+    /* To round the bottom two corners of the mouth again */
+  }
+}
+
+@keyframes squint {
+  70% {
+    transform: scaleX(50%) scaleY(50%);
+    /* To shrink the eyes */
+  }
+}
